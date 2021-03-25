@@ -1,0 +1,246 @@
+@import config
+@import "blocks/**/*"
+
+
+//custom sass
+.page
+    display: flex
+    justify-content: space-around
+    margin-top: 10px
+    flex-flow: row wrap
+
+    & section:not(:first-child):not(:last-child)
+            padding: 0 40px
+
+    @media only screen and (min-width: 768px)
+        flex-flow: row nowrap
+        justify-content: space-between
+
+.section__title
+    font-size: 16px
+    font-weight: 700
+    margin-bottom: 10px
+    @media only screen and (min-width: 480px)
+        font-size: 20px
+    @media only screen and (min-width: 768px)
+        font-size: 22px
+
+.section__subtitle
+    font-size: 16px
+
+.direction__list
+    margin: 0 auto
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-between
+    width: 300px
+    @media only screen and (min-width: 768px)
+        width: 150px
+    @media only screen and (min-width: 992px)
+        width: 195px
+
+.direction__item_empty
+    height: 60px
+    width: 60px
+    margin: 10px
+    @media only screen and (min-width: 768px)
+        height: 40px
+        width: 40px
+        margin: 5px
+    @media only screen and (min-width: 992px)
+        height: 45px
+        width: 45px
+        margin: 10px
+
+.direction__item
+    background-color: $basecolor
+    height: 60px
+    width: 60px
+    margin: 10px
+    cursor: pointer
+    @media only screen and (min-width: 768px)
+        height: 40px
+        width: 40px
+        margin: 5px
+    @media only screen and (min-width: 992px)
+        height: 45px
+        width: 45px
+        margin: 10px
+
+    &_top
+        clip-path: polygon(50% 0, 100% 100%, 0 100%)
+
+    &_top-right
+        clip-path: polygon(0 0, 100% 0, 100% 100%)
+
+    &_right
+        clip-path: polygon(0 0, 100% 50%, 0 100%)
+
+    &_bottom-right
+        clip-path: polygon(100% 0, 100% 100%, 0 100%)
+
+    &_bottom
+        clip-path: polygon(0 0, 100% 0, 50% 100%)
+
+    &_bottom-left
+        clip-path: polygon(0 0, 100% 100%, 0 100%)
+
+    &_left
+        clip-path: polygon(100% 0, 100% 100%, 0 50%)
+
+    &_left-top
+        clip-path: polygon(0 0, 100% 0, 0 100%)
+
+.direction__item_active
+    background-color: #253342
+
+.direction__rotate
+    margin: 10px 0 0 10px
+    display: flex
+    flex-direction: column
+
+.preview
+    width: 100%
+
+.preview__area
+    background-image: url(../../images/src/bg.png)
+    background-repeat: repeat
+    border: solid 1px #e8e8e8
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 360px
+    margin-bottom: 10px
+    overflow: auto
+    position: relative
+
+.preview__triangle
+    position: absolute
+
+.button-copy-css
+    font-size: 14px
+    align-self: center
+    color: #ffffff
+    background-color: $basecolor
+    border-radius: 25px
+    padding: 10px 15px
+    position: relative
+    display: flex
+    align-items: center
+
+    .button-copy-css__icon
+        display: inline-block
+        width: 20px
+        height: 20px
+        background-image: url(../../images/src/copy-icon.svg)
+        background-size: 20px 20px
+        margin-right: 5px
+
+    .tooltip-text
+        visibility: hidden
+        width: 140px
+        background-color: #ff6347
+        text-align: center
+        border-radius: 6px
+        padding: 5px
+        position: absolute
+        bottom: 125%
+        left: 50%
+        transform: translateX(-50%)
+        opacity: 0
+        transition: opacity 0.3s
+
+        &:before
+            content: ""
+            position: absolute
+            top: 100%
+            left: 50%
+            transform: translateX(-50%)
+            height: 8.6px
+            width: 31px
+            background-color: rgb(295, 99, 71)
+            clip-path: polygon(0px 0px, 100% 0px, 50% 100%)
+
+    &:hover .tooltip-text
+        visibility: visible
+        opacity: 0.9
+
+.preview__css-code
+    width: 100%
+    color: #253342
+    font-size: 14px
+    background-color: #fff
+    border: 1px solid #e8e8e8
+    border-radius: 5px
+    padding: 20px 15px 15px
+    position: relative
+    margin-bottom: 10px
+    @media only screen and (min-width: 1200px)
+        font-size: 16px
+
+    &:before
+        content: "CSS"
+        position: absolute
+        top: 4px
+        left: 15px
+        color: #8e9fad
+        font-size: 12px
+
+.settings
+    width: 100%
+
+    @media only screen and (min-width: 480px)
+        max-width: 380px
+    @media only screen and (min-width: 768px)
+        min-width: 320px
+
+.section__subtitle
+    border-bottom: solid 1px #e8e8e8
+    padding-bottom: 5px
+    margin-top: 10px
+
+.settings__list
+    margin: 10px 0 0 10px
+
+    &_type
+        display: flex
+        justify-content: space-around
+
+        .settings__item
+            display: flex
+            align-items: center
+
+        label.settings__item
+            cursor: pointer
+
+    &_color .settings__item
+        flex-direction: row
+
+.triangle-type
+    cursor: pointer
+
+.settings__item
+    display: flex
+    flex-direction: column
+
+    &:not(:last-child)
+        margin-bottom: 10px
+
+.settings__field
+    width: 60px
+    height: 20px
+    border: none
+    border-bottom: 2px solid $basecolor
+
+.settings__range
+    margin-bottom: 10px
+    cursor: pointer
+
+.settings__color
+    margin-right: 10px
+    cursor: pointer
+
+.setting__color-code
+    cursor: pointer
+

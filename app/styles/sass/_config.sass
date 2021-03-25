@@ -1,0 +1,79 @@
+// USER VARIABLES SECTION
+
+$minWidth: 320px
+$maxWidth: 1150px
+$maxWidthContent: 1150
+$md1: $maxWidthContent + 12
+$md2: 991.98
+$md3: 767.98
+$md4: 479.98
+
+$basecolor: #ff6347
+$fontsize: 14px // Body Font Size
+$textcolor: #253342 // Text Color
+$lineheight: 1.65 // Document Line Height
+$userfont: Euclid Circular A, sans-serif // User Font Family
+
+
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+    @font-face
+        font-family: $fname
+        font-style: $fstyle
+        font-weight: $fweight
+        src: url($furl) format('woff2')
+
+
+@include font('Euclid Circular A', normal, 400, '../fonts/EuclidCircularA-Regular.woff2')
+@include font('Euclid Circular A', normal, 700, '../fonts/EuclidCircularA-SemiBold.woff2')
+
+
+@mixin button-reset
+    padding: 0
+    border: none
+    font: inherit
+    color: inherit
+    background-color: transparent
+    cursor: pointer
+
+
+// GENERAL DOCUMENT STYLES
+body, html
+    min-width: 100%
+    min-height: 100%
+    background-color: #f8f9fb
+
+button
+    @include button-reset
+
+label
+    margin-bottom: 0
+
+input, textarea
+    outline: none
+
+    &:focus:required:invalid
+        border-color: red
+
+
+    &:required:valid
+        border-color: green
+
+body
+    font-family: $userfont
+    font-size: $fontsize
+    line-height: $lineheight
+    color: $textcolor
+    min-width: $minWidth
+    position: relative
+    overflow-x: hidden
+
+.container
+    max-width: $maxWidthContent + px
+    padding: 0 10px
+    margin: 0 auto

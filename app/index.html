@@ -1,0 +1,81 @@
+<!--#set var="title" value="Title" -->
+
+<!--#include virtual="/parts/head.html" -->
+
+
+<!--#include virtual="/parts/header.html" -->
+
+<main class="page container">
+	<section class="direction">
+		<div class="section__title">Direction</div>
+		<div class="direction__list">
+			<div class="direction__item direction__item_left-top"></div>
+			<div class="direction__item direction__item_top direction__item_active"></div>
+			<div class="direction__item direction__item_top-right"></div>
+			<div class="direction__item direction__item_left"></div>
+			<div class="direction__item_empty"></div>
+			<div class="direction__item direction__item_right"></div>
+			<div class="direction__item direction__item_bottom-left"></div>
+			<div class="direction__item direction__item_bottom"></div>
+			<div class="direction__item direction__item_bottom-right"></div>
+		</div>
+		<div class="section__subtitle">Rotate</div>
+		<div class="direction__rotate">
+			<input type="range" class="settings__range" id="rotate-range" min="0" max="360" step="1" value="0">
+			<input type="number" class="settings__field" id="rotate-field" value="0" min="0">
+		</div>
+	</section>
+	<section class="settings">
+		<div class="section__title">Settings</div>
+		<div class="section__subtitle">Type</div>
+		<div class="settings__list settings__list_type">
+			<label class="settings__item" for="equilateral">
+				<span>Equilateral</span>
+				<input type="radio" id="equilateral" class="triangle-type" checked="checked" name="type">
+			</label>
+			<label class="settings__item" for="isosceles">
+				<span>Isosceles</span>
+				<input type="radio" id="isosceles" class="triangle-type" name="type">
+			</label>
+		</div>
+		<div class="section__subtitle">Dimensions</div>
+		<div class="settings__list">
+			<div class="settings__item">
+				<label>Width</label>
+				<input type="range" class="settings__range dimension-range" id="width-range" min="0" max="400" step="1"
+					   value="100">
+				<input type="number" class="settings__field dimension-field" id="width-field" value="100" min="0">
+			</div>
+			<div class="settings__item">
+				<label>Height</label>
+				<input type="range" class="settings__range dimension-range" id="height-range" min="0" max="400" step="1"
+					   value="86.6">
+				<input type="number" class="settings__field dimension-field" id="height-filed" value="86.6" min="0">
+			</div>
+		</div>
+		<div class="section__subtitle">Color</div>
+		<div class="settings__list settings__list_color">
+			<div class="settings__item">
+				<input type="color" id="color" class="settings__color" value="#ff6347">
+				<label for="color" class="setting__color-code">rgb(295, 99, 71)</label>
+			</div>
+		</div>
+	</section>
+	<section class="preview">
+		<div class="section__title">Preview</div>
+		<div class="preview__area">
+			<div class="preview__triangle preview__triangle_direction_top"
+				 style="background-color: rgb(295, 99, 71);height: 86.6px;width: 100px;clip-path: polygon(50% 0, 100% 100%, 0 100%)"></div>
+		</div>
+		<div class="preview__css-code">height: 86.6px;<br>width: 100px;<br>background-color: rgb(295, 99, 71);<br>clip-path:
+			polygon(50% 0, 100% 100%, 0 100%);
+		</div>
+		<button class="button button-copy-css">
+			<i class="button-copy-css__icon"></i>
+			<span class="tooltip-text" id="myTooltip">Copy to clipboard</span><!--Copy completed-->
+			Copy all
+		</button>
+	</section>
+</main>
+
+<!--#include virtual="/parts/footer.html" -->
